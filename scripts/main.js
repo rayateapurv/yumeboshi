@@ -104,8 +104,8 @@ const init = () => {
                 bluemix: { type: "f", value: 1.0 },
                 noisepercent: { type: "f", value: 5.0 }
             },
-            vertexShader: document.getElementById( 'vertShader' ).textContent,
-            fragmentShader: document.getElementById( 'fragShader' ).textContent   
+            vertexShader: document.querySelector( '#vertShader' ).textContent,
+            fragmentShader: document.querySelector( '#fragShader' ).textContent   
         });
         mat.wireframe = effectController.b1wf;
 
@@ -121,8 +121,8 @@ const init = () => {
                 bluemix: { type: "f", value: 1.0 },
                 noisepercent: { type: "f", value: 5.0 }
             },
-            vertexShader: document.getElementById( 'vertShader' ).textContent,
-            fragmentShader: document.getElementById( 'fragShader' ).textContent   
+            vertexShader: document.querySelector( '#vertShader' ).textContent,
+            fragmentShader: document.querySelector( '#fragShader' ).textContent   
         });
         mat2.wireframe = effectController.b2wf;
 
@@ -154,8 +154,8 @@ const init = () => {
                 resolution: { type: "v2", value: new THREE.Vector2( window.innerWidth, window.innerHeight ) },
                 strength: { type: "f", value: effectController.blurint }
             },
-            vertexShader: document.getElementById( 'vertShaderZoom' ).textContent,
-            fragmentShader: document.getElementById( 'fragShaderZoom' ).textContent,
+            vertexShader: document.querySelector( '#vertShaderZoom' ).textContent,
+            fragmentShader: document.querySelector( '#fragShaderZoom' ).textContent,
     
             depthWrite: false,
     
@@ -167,8 +167,8 @@ const init = () => {
                 tBase: { type: "t", value: 0, texture: baseTexture },
                 tGlow: { type: "t", value: 1, texture: glowTexture }
             },
-            vertexShader: document.getElementById( 'vertShaderComp' ).textContent,
-            fragmentShader: document.getElementById( 'fragShaderComp' ).textContent,
+            vertexShader: document.querySelector( '#vertShaderComp' ).textContent,
+            fragmentShader: document.querySelector( '#fragShaderComp' ).textContent,
     
             depthWrite: false,
     
