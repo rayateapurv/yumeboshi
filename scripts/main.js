@@ -234,8 +234,6 @@ const init = () => {
         let f3 = gui.addFolder( "General Controls" );
         f3.add( effectController, "blurint", 0.0, 1.0, 0.1 ).name( "blur intensity" ).listen();
 
-
-
         // let stats = new statsJs.Stats();
 		// document.body.appendChild( stats.dom );
 
@@ -250,19 +248,19 @@ const init = () => {
     function render() {
         analyser.getByteFrequencyData(dataArray);
 
-        var lowerHalfArray = dataArray.slice(0, (dataArray.length/2) - 1);
-        var upperHalfArray = dataArray.slice((dataArray.length/2) - 1, dataArray.length - 1);
+        let lowerHalfArray = dataArray.slice(0, (dataArray.length/2) - 1);
+        let upperHalfArray = dataArray.slice((dataArray.length/2) - 1, dataArray.length - 1);
 
-        var overallAvg = avg(dataArray);
-        var lowerMax = max(lowerHalfArray);
-        var lowerAvg = avg(lowerHalfArray);
-        var upperMax = max(upperHalfArray);
-        var upperAvg = avg(upperHalfArray);
+        let overallAvg = avg(dataArray);
+        let lowerMax = max(lowerHalfArray);
+        let lowerAvg = avg(lowerHalfArray);
+        let upperMax = max(upperHalfArray);
+        let upperAvg = avg(upperHalfArray);
 
-        var lowerMaxFr = lowerMax / lowerHalfArray.length;
-        var lowerAvgFr = lowerAvg / lowerHalfArray.length;
-        var upperMaxFr = upperMax / upperHalfArray.length;
-        var upperAvgFr = upperAvg / upperHalfArray.length;
+        let lowerMaxFr = lowerMax / lowerHalfArray.length;
+        let lowerAvgFr = lowerAvg / lowerHalfArray.length;
+        let upperMaxFr = upperMax / upperHalfArray.length;
+        let upperAvgFr = upperAvg / upperHalfArray.length;
         
         distortMesh(ball2, modulate(lowerAvg, 0, 0.7, 0, 0.05), modulate(upperAvgFr, 0, 1, 0, 1.5), 0.4);
         distortMesh(ball, modulate(Math.pow(lowerMaxFr, 0.8), 0, 1.0, 0, 0.5), Math.pow(upperMaxFr, 0.8), 0.7);
@@ -315,12 +313,12 @@ const init = () => {
 
     function distortMesh(mesh, bassFr, treFr, intensity) {
         mesh.geometry.vertices.forEach(function (vertex, i) {
-            var offset = mesh.geometry.parameters.radius;
-            var amp = 7;
-            var time = window.performance.now();
+            let offset = mesh.geometry.parameters.radius;
+            let amp = 7;
+            let time = window.performance.now();
             vertex.normalize();
-            var rf = 0.00001;
-            var distance = (offset + bassFr ) + simplex.noise3D(vertex.x + time *rf*8, vertex.y +  time*rf*7, vertex.z + time*rf*8) * amp * treFr;
+            let rf = 0.00001;
+            let distance = (offset + bassFr ) + simplex.noise3D(vertex.x + time *rf*8, vertex.y +  time*rf*7, vertex.z + time*rf*8) * amp * treFr;
             vertex.multiplyScalar(distance * intensity);
         });
         mesh.geometry.verticesNeedUpdate = true;
@@ -335,23 +333,19 @@ const init = () => {
 
 window.onload = init();
 
-document.body.addEventListener('touchend', function(ev) { context.resume(); });
-
-
-
-//some helper functions here
+//helper functions
 function fractionate(val, minVal, maxVal) {
     return (val - minVal)/(maxVal - minVal);
 }
 
 function modulate(val, minVal, maxVal, outMin, outMax) {
-    var fr = fractionate(val, minVal, maxVal);
-    var delta = outMax - outMin;
+    let fr = fractionate(val, minVal, maxVal);
+    let delta = outMax - outMin;
     return outMin + (fr * delta);
 }
 
 function avg(arr){
-    var total = arr.reduce(function(sum, b) { return sum + b; });
+    let total = arr.reduce(function(sum, b) { return sum + b; });
     return (total / arr.length);
 }
 
