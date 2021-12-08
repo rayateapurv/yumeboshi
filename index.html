@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>WEBSITE TITLE HERE</title>
+    <title>Yumeboshi</title>
     <link rel="stylesheet" type="text/css" href="./styles/style.css" media="screen" />
 </head>
     
@@ -14,7 +14,9 @@
             <input type="file" id="thefile" accept="audio/*" />
         </label>
     
-        <audio id="audio" controls></audio>
+        <audio id="audio" controls onclick="resumeContext()">
+            <source id="audioSource" src="./assets/audio/palace.mp3"></source>
+        </audio>
         <div id="out"></div>
     </div>
     

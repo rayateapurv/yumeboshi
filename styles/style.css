@@ -12,7 +12,7 @@ body{
   width: 100vw;
   background: var(--black);
   color: var(--white);
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   position: relative;
 }
 
@@ -47,29 +47,18 @@ audio.active{
 label.file{
   display: inline-block;
   position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate3d(-50%, -50%, 0);
-  padding: 1rem 2rem;
+  padding: 0.2rem 2rem;
+  top: 10px;
+  left: 10px;
   border-radius: 4px;
   
   background: var(--white);
   color: var(--black);
-  font-size: 1.25em;
-  font-weight: 700;
+  font-size: 1.0em;
 
   cursor: pointer;
 }
 
 label.file:hover{
     background: var(--grey);
-    transform: translate3d(-50%, -55%, 0);
-}
-
-label.file.normal{
-  transform: translate3d(10%, 50%, 0);
-  padding: 0.2rem 2rem;
-  font-size: 1rem;
-  top: 0;
-  left: 0;
 }
